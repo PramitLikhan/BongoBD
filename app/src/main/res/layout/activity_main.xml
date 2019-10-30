@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="10dp"
     android:paddingRight="10dp">
-    <VideoView
-        android:id="@+id/vdVw"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center" />
-</RelativeLayout>
+        android:orientation="vertical"
+        >
+        <VideoView
+            android:id="@+id/vdVw"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            />
+
+        <Button
+            android:id="@+id/button_video_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Select Video"
+            />
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
