@@ -1,3 +1,0 @@
-# BongoBD
-
-testing github
