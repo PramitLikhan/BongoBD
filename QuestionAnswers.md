@@ -5,7 +5,8 @@
 
 Answer: 
 //Java
-public static boolean detectAnagram(String s1, String s2){
+
+    public static boolean detectAnagram(String s1, String s2){
     char [] ch1 = s1.toCharArray();
     char [] ch2 = s2.toCharArray();
     int matchCount = 0;
@@ -19,7 +20,6 @@ public static boolean detectAnagram(String s1, String s2){
         }
       }
     }
-    
     if(matchCount==ch1.length){
       return true;
     } else {
