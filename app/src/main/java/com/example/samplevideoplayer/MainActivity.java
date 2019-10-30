@@ -1,23 +1,18 @@
 package com.example.samplevideoplayer;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 
-
 public class MainActivity extends AppCompatActivity {
     Intent videoFileIntent;
     Button buttonVideoSelect;
-    String path;
     Uri uri;
     VideoView videoView;
 
@@ -26,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         videoView = findViewById(R.id.vdVw);
-
         buttonVideoSelect = findViewById(R.id.button_video_select);
 
         setButtonVideoSelect();
@@ -34,16 +28,8 @@ public class MainActivity extends AppCompatActivity {
         //Set MediaController  to enable play, pause, forward, etc options.
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
-
-        //Location of Media File
-        //uploading to github
-
-//        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video1);
-
-        //Starting VideView By Setting MediaController and URI
         videoView.setMediaController(mediaController);
         checkUri();
-
     }
 
 
@@ -62,11 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 videoFileIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 videoFileIntent.setType("video/mp4");
                 startActivityForResult(videoFileIntent,10);
-
-
             }
         });
-
     }
 
     @Override
@@ -77,12 +60,8 @@ public class MainActivity extends AppCompatActivity {
                     uri = data.getData();
                     checkUri();
                 }
-
                 break;
         }
     }
 
-    public void setVideoPlayer(Intent videoFileIntent) {
-
-    }
 }
