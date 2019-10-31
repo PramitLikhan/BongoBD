@@ -5,6 +5,8 @@
 
 Answer: 
 
+This function returns a 'true' value when the two strings are anagrams and returns a 'false' value when they are not anagrams.
+
     public static boolean detectAnagram(String s1, String s2){
         char [] ch1 = s1.toCharArray();
         char [] ch2 = s2.toCharArray();
@@ -36,7 +38,9 @@ Answer:
   
 a) Explain how you can use the pattern to create car and plane class?
 
-Answer: I can implement the interface on the car and plane class where I have to add the key word "implements" after the class name.
+Answer: 
+
+I can implement the interface on the car and plane class where I have to add the key word "implements" after the class name.
 e.g. public class car implements Vehicle(){}. Since its an interface I have to implement all the methods inside Vehicle inside both car and plane.
     
     public class car implements Vehicle{
@@ -73,7 +77,16 @@ e.g. public class car implements Vehicle(){}. Since its an interface I have to i
         }
     }
     
-This design has some problems considering international conventions of coding , a setter method should not return anything and should have parameter or arguments that the method was supposed to set their value into preferred variables. 
+This design has some problems considering international conventions of coding , a setter method should not return anything and should have parameter/s or argument/s that the method was supposed to set their value into preferred variables. On the contrary a the style of the methods mentioned to have a setter method should be getter methods because they do return values after finishing a certain action.
 
 b) Use a different design pattern for this solution.
-Answer:   
+
+Answer: 
+
+We can use abstract class design where the properties given for a generalized entity will be stored in an abstract class, which we will extend and build our car and plane class.
+
+3.Write a video player application with ‘Play’, ‘Forward’ , ‘Rewind’ functionalities. Please write pseudocode for this program and explain the design pattern you will use to develop these three functionalities.
+
+Answer:
+
+
