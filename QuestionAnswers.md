@@ -40,23 +40,27 @@ a) Explain how you can use the pattern to create car and plane class?
 
 Answer: 
 
-I can implement the interface on the car and plane class where I have to add the key word "implements" after the class name.
-e.g. public class car implements Vehicle(){}. Since its an interface I have to implement all the methods inside Vehicle inside both car and plane.
+The design pattern that the provided question uses is called a decorator design pattern .I can implement the interface on the car and plane class where I have to add the key word "implements" after the class name.e.g. public class car implements Vehicle(){}. Since its an interface I have to override all the methods inside Vehicle inside both car and plane.
 
 car class:
 
     public class car implements Vehicle{
         int num_of_wheels;
         int num_of_passengers;
- 
+        
+        @override
         public int set_num_of_wheels(){
             num_of_wheels = 4;
             return num_of_wheels;
         }
+        
+        @override
         public int set_num_of_passengers(){
             num_of_passengers=4;
             return num_of_passengers;
         }
+        
+        @override
         public boolean has_gas(){
             return true;
         }
@@ -67,51 +71,64 @@ plane class:
     public class plane implements Vehicle{
         int num_of_wheels;
         int num_of_passengers;
- 
+        
+        @override
         public int set_num_of_wheels(){
             num_of_wheels = 12;
             return num_of_wheels;
         }
+        
+        @override
         public int set_num_of_passengers(){
             num_of_passengers=300;
             return num_of_passengers;
         }
+        
+        @override
         public boolean has_gas(){
-            return true;
+            return false;
         }
     }
-    
-This design has some problems considering international conventions of coding , a setter method should not return anything and should have parameter/s or argument/s that the method was supposed to set their value into preferred variables. On the contrary a the style of the methods mentioned to have a setter method should be getter methods because they do return values after finishing a certain action.
 
 b) Use a different design pattern for this solution.
 
 Answer:
 
-Here is the solution with the conventional getter setter,
+An alternative design pattern can be template design pattern causing the interface to become an abstract class.
+
+    abstract class Vehicle {
+        int set_num_of_wheels();
+        int set_num_of_passengers();
+        boolean has_gas();
+        
+        final void template(){
+            int set_num_of_wheels();
+            int set_num_of_passengers();
+            boolean has_gas();
+        }
+    }
+
+In template design pattern we will extend the vehicle abstract class in car and plane class and override the methods.
 
 car class:
 
-    public class car implements Vehicle{
+    public class car extends Vehicle{
         int num_of_wheels;
         int num_of_passengers;
-        boolean gas_availability;
-        
-        public int get_num_of_wheels(){
+ 
+        @override
+        public int set_num_of_wheels(){
+            num_of_wheels = 4;
             return num_of_wheels;
         }
- 
-        public set_num_of_wheels(int num_of_wheels){
-            this.num_of_wheels = num_of_wheels;
-        }
         
-        public int get_num_of_passengers(){
+        @override
+        public int set_num_of_passengers(){
+            num_of_passengers=4;
             return num_of_passengers;
         }
         
-        public set_num_of_passengers(int num_of_passengers){
-            this.num_of_passengers = num_of_passengers;
-        }
-        
+        @override
         public boolean has_gas(){
             return true;
         }
@@ -119,31 +136,28 @@ car class:
 
 plane class:
 
-    public class Plane implements Vehicle{
-            int num_of_wheels;
-            int num_of_passengers;
-            boolean gas_availability;
+    public class Plane extends Vehicle{
+        int num_of_wheels;
+        int num_of_passengers;
+        boolean gas_availability;
 
-            public int get_num_of_wheels(){
-                return num_of_wheels;
-            }
-
-            public set_num_of_wheels(int num_of_wheels){
-                this.num_of_wheels = num_of_wheels;
-            }
-
-            public int get_num_of_passengers(){
-                return num_of_passengers;
-            }
-
-            public set_num_of_passengers(int num_of_passengers){
-                this.num_of_passengers = num_of_passengers;
-            }
-
-            public boolean has_gas(){
-                return true;
-            }
+        @override
+        public int set_num_of_wheels(){
+            num_of_wheels = 12;
+            return num_of_wheels;
         }
+        
+        @override
+        public int set_num_of_passengers(){
+            num_of_passengers = 300;
+            return num_of_passengers;
+        }
+        
+        @override
+        public boolean has_gas(){
+            return false;
+        }
+    }
 
 
 
